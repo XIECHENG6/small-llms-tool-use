@@ -210,7 +210,7 @@ If you find this work useful, please cite:
   title={Small LLMs as Tool-Use Agents: A Systematic Study of Parameter-Efficient Fine-Tuning for Function Calling},
   author={Jason},
   year={2026},
-  url={https://github.com/your-username/fc-finetune}
+  url={https://github.com/XIECHENG6/small-llms-tool-use}
 }
 ```
 
