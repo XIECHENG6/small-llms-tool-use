@@ -208,9 +208,9 @@ If you find this work useful, please cite:
 ```bibtex
 @misc{fc-finetune-2026,
   title={Small LLMs as Tool-Use Agents: A Systematic Study of Parameter-Efficient Fine-Tuning for Function Calling},
-  author={Jason},
+  author={ChengXie},
   year={2026},
-  url={https://github.com/your-username/fc-finetune}
+  url={https://github.com/XIECHENG6/small-llms-tool-use}
 }
 ```
 
