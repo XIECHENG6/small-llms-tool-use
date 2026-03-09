@@ -6,6 +6,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Colab](https://img.shields.io/badge/Open%20in-Colab-F9AB00?logo=googlecolab)](https://colab.research.google.com/)
 
+## Quick Start
+```bash
+git clone https://github.com/XIECHENG6/small-llms-tool-use
+cd small-llms-tool-use
+pip install -r requirements.txt
+
+# Fine-tune Qwen2.5-3B with 3K samples (recommended)
+python src/train.py --model Qwen2.5-3B-Instruct --data_size 3000
+
+# Evaluate
+python src/evaluate.py --model_path ./output
+```
+
 ## Key Findings
 
 > **QLoRA fine-tuning with just 3K examples enables a 1.5B model to achieve 86.6% exact match on function calling — only 2.8% below a 7B model (89.4%). Fine-tuned models generalize to completely unseen functions, achieving 91.8% exact match on functions never seen during training.**
