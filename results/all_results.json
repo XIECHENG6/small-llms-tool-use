@@ -1,0 +1,77 @@
+{
+  "model_comparison": {
+    "Qwen2.5-1.5B": {
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "params": "1.5B",
+      "zero_shot": {"JSON Valid Rate": 0.934, "Function Name Acc": 0.934, "Arg Names Acc": 0.886, "Arg Values Acc": 0.714, "Exact Match Rate": 0.714},
+      "fine_tuned": {"JSON Valid Rate": 1.000, "Function Name Acc": 1.000, "Arg Names Acc": 0.968, "Arg Values Acc": 0.858, "Exact Match Rate": 0.858}
+    },
+    "Qwen2.5-3B": {
+      "model_id": "Qwen/Qwen2.5-3B-Instruct",
+      "params": "3B",
+      "zero_shot": {"JSON Valid Rate": 1.000, "Function Name Acc": 1.000, "Arg Names Acc": 0.960, "Arg Values Acc": 0.722, "Exact Match Rate": 0.722},
+      "fine_tuned": {"JSON Valid Rate": 0.998, "Function Name Acc": 0.998, "Arg Names Acc": 0.976, "Arg Values Acc": 0.878, "Exact Match Rate": 0.878}
+    },
+    "Qwen2.5-7B": {
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "params": "7B",
+      "zero_shot": {"JSON Valid Rate": 1.000, "Function Name Acc": 1.000, "Arg Names Acc": 0.950, "Arg Values Acc": 0.736, "Exact Match Rate": 0.736},
+      "fine_tuned": {"JSON Valid Rate": 1.000, "Function Name Acc": 1.000, "Arg Names Acc": 0.976, "Arg Values Acc": 0.882, "Exact Match Rate": 0.882}
+    },
+    "LLaMA-3.2-3B": {
+      "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+      "params": "3B",
+      "zero_shot": {"JSON Valid Rate": 0.994, "Function Name Acc": 0.994, "Arg Names Acc": 0.954, "Arg Values Acc": 0.616, "Exact Match Rate": 0.616},
+      "fine_tuned": {"JSON Valid Rate": 1.000, "Function Name Acc": 1.000, "Arg Names Acc": 0.978, "Arg Values Acc": 0.878, "Exact Match Rate": 0.878}
+    },
+    "Phi-3.5-mini": {
+      "model_id": "microsoft/Phi-3.5-mini-instruct",
+      "params": "3.8B",
+      "zero_shot": {"JSON Valid Rate": 0.994, "Function Name Acc": 0.992, "Arg Names Acc": 0.942, "Arg Values Acc": 0.732, "Exact Match Rate": 0.732},
+      "fine_tuned": {"JSON Valid Rate": 0.996, "Function Name Acc": 0.992, "Arg Names Acc": 0.974, "Arg Values Acc": 0.874, "Exact Match Rate": 0.874}
+    }
+  },
+  "data_scaling": {
+    "500":   {"Exact Match Rate": 0.782},
+    "1000":  {"Exact Match Rate": 0.804},
+    "3000":  {"Exact Match Rate": 0.866},
+    "10000": {"Exact Match Rate": 0.878},
+    "30000": {"Exact Match Rate": 0.894}
+  },
+  "lora_rank_ablation": {
+    "4":  {"alpha": 8,   "Exact Match Rate": 0.872},
+    "8":  {"alpha": 16,  "Exact Match Rate": 0.876},
+    "16": {"alpha": 32,  "Exact Match Rate": 0.878},
+    "32": {"alpha": 64,  "Exact Match Rate": 0.884},
+    "64": {"alpha": 128, "Exact Match Rate": 0.878}
+  },
+  "held_out_evaluation": {
+    "holdout_functions": ["calculate_area", "calculate_bmi", "calculate_distance", "generate_qr_code", "get_movie_details", "get_stock_price", "search_recipe", "send_email", "set_alarm", "translate_text"],
+    "seen_functions": {"JSON Valid Rate": 1.000, "Function Name Acc": 1.000, "Arg Names Acc": 0.972, "Arg Values Acc": 0.860, "Exact Match Rate": 0.860},
+    "unseen_functions": {"JSON Valid Rate": 1.000, "Function Name Acc": 0.998, "Arg Names Acc": 0.976, "Arg Values Acc": 0.918, "Exact Match Rate": 0.918},
+    "per_function_unseen": {
+      "calculate_bmi": {"correct": 104, "total": 104, "accuracy": 1.00},
+      "calculate_distance": {"correct": 95, "total": 95, "accuracy": 1.00},
+      "get_stock_price": {"correct": 72, "total": 72, "accuracy": 1.00},
+      "get_movie_details": {"correct": 49, "total": 49, "accuracy": 1.00},
+      "calculate_area": {"correct": 46, "total": 47, "accuracy": 0.98},
+      "search_recipe": {"correct": 17, "total": 20, "accuracy": 0.85},
+      "translate_text": {"correct": 16, "total": 19, "accuracy": 0.84},
+      "generate_qr_code": {"correct": 58, "total": 76, "accuracy": 0.76},
+      "send_email": {"correct": 2, "total": 18, "accuracy": 0.11}
+    }
+  },
+  "experiment_config": {
+    "dataset": "glaiveai/glaive-function-calling-v2",
+    "total_parsed_samples": 56796,
+    "quantization": "QLoRA 4-bit NF4",
+    "default_lora_rank": 16,
+    "default_lora_alpha": 32,
+    "learning_rate": 2e-4,
+    "epochs": 3,
+    "max_seq_length": 512,
+    "default_train_samples": 10000,
+    "test_samples": 500,
+    "gpu": "NVIDIA L4 (24GB)"
+  }
+}
